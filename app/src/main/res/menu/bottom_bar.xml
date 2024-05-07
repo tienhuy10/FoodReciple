@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home"
+        android:title="Trang chủ"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/saved"
+        android:icon="@drawable/ic_baseline_list"
+        android:title="Đã lưu"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/post"
+        android:icon="@drawable/ic_baseline_settings"
+        android:title="Đăng bài"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/notification"
+        android:icon="@drawable/ic_baseline_support"
+        android:title="Thông báo"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_baseline_person"
+        android:title="Tôi"
+        app:showAsAction="ifRoom" />
+
+</menu>
