@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.foodreciple.AdminActivity.Add_Category;
 import com.example.foodreciple.R;
 
 public class Intro extends AppCompatActivity {
@@ -30,7 +31,7 @@ public class Intro extends AppCompatActivity {
         btn_Dangky.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intro.this, DangKy.class);
+                Intent intent = new Intent(Intro.this, Add_Category.class);
                 startActivity(intent);
             }
         });

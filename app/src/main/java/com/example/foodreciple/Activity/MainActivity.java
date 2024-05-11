@@ -3,7 +3,7 @@ package com.example.foodreciple.Activity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
-    FrameLayout viewPager;
+    LinearLayout viewPager;
     BottomNavigationView bottomNavigationView;
 
     @SuppressLint("MissingInflatedId")

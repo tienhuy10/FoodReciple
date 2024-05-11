@@ -2,9 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
         android:maxSdkVersion="30"
         tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,16 +18,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodReciple"
         tools:targetApi="31">
+        <activity
+            android:name=".AdminActivity.Add_Food"
+            android:exported="true"
+            android:label="@string/title_activity_add_food"
+            android:theme="@style/Theme.FoodReciple">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AdminActivity.Add_Category"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Activity.Intro"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" /> <!-- Thêm category này -->
+
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> &lt;!&ndash; Thêm category này &ndash;&gt; -->
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activity.DangKy"
             android:exported="true">
@@ -33,7 +52,6 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activity.DangNhap"
             android:exported="true">
@@ -41,15 +59,15 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
