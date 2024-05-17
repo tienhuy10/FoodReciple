@@ -8,7 +8,7 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/saved"
-        android:icon="@drawable/ic_baseline_list"
+        android:icon="@drawable/bookmark"
         android:title="Đã lưu"
         app:showAsAction="always" />
     <item

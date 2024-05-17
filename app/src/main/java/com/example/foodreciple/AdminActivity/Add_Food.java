@@ -38,7 +38,7 @@ public class Add_Food extends AppCompatActivity {
     final int REQUEST_CODE_GALLERY = 999;
     ArrayList<String> CategoryName;
     Spinner spinnerCategory;
-    EditText categoryNameEditText;
+    EditText categoryNameEditText, edt_nguyen_lieu, edt_step, edt_time;
     Button addButton, choose_image;
     ImageView image;
 
@@ -52,6 +52,9 @@ public class Add_Food extends AppCompatActivity {
         addButton = findViewById(R.id.add_cate);
         choose_image = findViewById(R.id.choose_image);
         image = findViewById(R.id.image);
+        edt_nguyen_lieu = findViewById(R.id.nguyen_lieu);
+        edt_step = findViewById(R.id.edt_step);
+        edt_time = findViewById(R.id.edt_time);
 
         databaseHelper = new DatabaseHelper(this);
         CategoryName = new ArrayList<>();
@@ -96,12 +99,15 @@ public class Add_Food extends AppCompatActivity {
 
     private void addFood() {
         String foodName = categoryNameEditText.getText().toString().trim();
-        int selectedCategoryId = (int) spinnerCategory.getSelectedItemId() + 1; // Lấy ID của danh mục được chọn trong Spinner
+        int selectedCategoryId = (int) spinnerCategory.getSelectedItemId() + 1;
+        String Ingredients = edt_nguyen_lieu.getText().toString().trim();
+        String Step = edt_step.getText().toString().trim();
+        String Time = edt_time.getText().toString().trim();
         byte[] img  = imageViewToByte(image);
 
         if (!foodName.isEmpty()) {
             // Thêm dữ liệu vào bảng thức ăn
-            databaseHelper.insertDataFood(foodName, selectedCategoryId, img); // Chú ý: Truyền foodName, selectedCategoryId và image vào phương thức insertData()
+            databaseHelper.insertDataFood(foodName, selectedCategoryId, Ingredients, Step, img, Time); // Chú ý: Truyền foodName, selectedCategoryId và image vào phương thức insertData()
 
             Toast.makeText(this, "Dữ liệu thức ăn đã được thêm vào!", Toast.LENGTH_SHORT).show();
         } else {
