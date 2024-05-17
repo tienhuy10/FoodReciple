@@ -33,17 +33,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ListData listData = dataArrayList.get(position);
-        holder.foodName.setText(listData.getName());
-        holder.foodTime.setText(listData.getTime());
-        holder.foodImage.setImageResource(listData.getImageResource());
+//        holder.foodName.setText(listData.getName());
+//        holder.foodTime.setText(listData.getTime());
+//        holder.foodImage.setImageResource(listData.getImageResource());
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, FoodDetails.class);
-            intent.putExtra("foodName", listData.getName());
-            intent.putExtra("foodTime", listData.getTime());
-            intent.putExtra("foodImage", listData.getImageResource());
-            intent.putExtra("foodIngredients", listData.getIngredients());
-            intent.putExtra("foodSteps", listData.getSteps());
+//            intent.putExtra("foodName", listData.getName());
+//            intent.putExtra("foodTime", listData.getTime());
+//            intent.putExtra("foodImage", listData.getImageResource());
+//            intent.putExtra("foodIngredients", listData.getIngredients());
+//            intent.putExtra("foodSteps", listData.getSteps());
             context.startActivity(intent);
         });
     }

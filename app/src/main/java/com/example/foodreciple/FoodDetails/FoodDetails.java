@@ -17,7 +17,7 @@ public class FoodDetails extends AppCompatActivity {
 
         String foodName = getIntent().getStringExtra("foodName");
         String foodTime = getIntent().getStringExtra("foodTime");
-        int foodImage = getIntent().getIntExtra("foodImage", R.drawable.default_image);
+//        int foodImage = getIntent().getIntExtra("foodImage", R.drawable.default_image);
         String foodIngredients = getIntent().getStringExtra("foodIngredients");
         String foodSteps = getIntent().getStringExtra("foodSteps");
 
@@ -29,7 +29,7 @@ public class FoodDetails extends AppCompatActivity {
 
         detailName.setText(foodName);
         detailTime.setText(foodTime);
-        detailImage.setImageResource(foodImage);
+//        detailImage.setImageResource(foodImage);
         detailIngredients.setText(foodIngredients);
         detailSteps.setText(foodSteps);
     }
