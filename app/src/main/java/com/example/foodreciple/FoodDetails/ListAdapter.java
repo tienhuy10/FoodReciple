@@ -59,9 +59,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            foodName = itemView.findViewById(R.id.food_name);
-            foodTime = itemView.findViewById(R.id.food_time);
-            foodImage = itemView.findViewById(R.id.food_image);
+//            foodName = itemView.findViewById(R.id.food_name);
+//            foodTime = itemView.findViewById(R.id.food_time);
+//            foodImage = itemView.findViewById(R.id.food_image);
         }
     }
 }
