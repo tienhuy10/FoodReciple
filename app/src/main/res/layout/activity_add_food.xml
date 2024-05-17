@@ -27,10 +27,32 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:hint="Nhập danh mục"/>
+
+    <EditText
+        android:id="@+id/nguyen_lieu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:hint="Nhập nguyên liệu"/>
+
+    <EditText
+        android:id="@+id/edt_step"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:hint="Nhập các bước"/>
+
     <Spinner
         android:id="@+id/spinner_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/edt_time"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:inputType="number"
+        android:hint="Thời gian"/>
 
     <Button
         android:id="@+id/add_cate"

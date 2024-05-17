@@ -109,18 +109,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    //INSERT FOOD
-    public void insertDataFood(String FoodName, int CategoryID, byte[] Image){
+    //SELECT FOOD
+    public Cursor getDataFood(){
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO FoodDetails (FoodName, CategoryID, Image) VALUES (?, ?, ?)";
+        Cursor cursor = database.rawQuery("SELECT * FROM FoodDetails", null);
+        return cursor;
+    }
+
+    //SELECT IMAGE FOOD
+    public Cursor getDataImage() {
+        SQLiteDatabase database = getWritableDatabase();
+        Cursor cursor = database.rawQuery("SELECT Image FROM FoodDetails", null);
+        return cursor;
+    }
+
+    //INSERT FOOD
+    public void insertDataFood(String FoodName, int CategoryID, String Ingredients, String Steps, byte[] Image, String Time){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "INSERT INTO FoodDetails (FoodName, CategoryID, Ingredients, Steps, Image, Time) VALUES (?, ?, ?, ?, ?, ?)";
 
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
         statement.bindString(1, FoodName);
         statement.bindLong(2, CategoryID);
-        statement.bindBlob(3, Image);
+        statement.bindString(3, Ingredients);
+        statement.bindString(4, Steps);
+        statement.bindBlob(5, Image);
+        statement.bindString(6, Time);
         statement.executeInsert();
     }
+
+
 
 
 }
