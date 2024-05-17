@@ -72,7 +72,7 @@ public class DangKy extends AppCompatActivity {
             }
         });
     }
-
+    
     private void AnhXa() {
         signupUsername = findViewById(R.id.signupUsername);
         signupEmail = findViewById(R.id.signupEmail);
