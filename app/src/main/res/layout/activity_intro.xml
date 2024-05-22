@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/screen"
-    android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".Activity.Intro">
 
     <ImageView
@@ -23,26 +23,26 @@
         android:id="@+id/btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bắt đầu"
-        android:textSize="18sp"
         android:layout_marginTop="300dp"
+        android:layout_marginBottom="32dp"
+        android:text="Bắt đầu"
         android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image_intro"
-        android:layout_marginBottom="32dp"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btn_Dangky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Đăng ky"
-        android:textSize="18sp"
-        android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/image_intro"
         android:layout_marginBottom="32dp"
+        android:text="Đăng ky"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/image_intro"
         tools:ignore="MissingConstraints" />
 
 </LinearLayout>

@@ -57,12 +57,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Boolean SingUp(String username, String email, String password){
+    public Boolean SingUp(String username, String password, String email){
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("username", username);
-        contentValues.put("email", email);
         contentValues.put("password", password);
+        contentValues.put("email", email);
         long result = MyDatabase.insert("Users", null, contentValues);
         if (result == -1) {
             return false;
@@ -111,6 +111,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //SELECT FOOD
     public Cursor getDataFood(){
+        SQLiteDatabase database = getWritableDatabase();
+        Cursor cursor = database.rawQuery("SELECT * FROM FoodDetails", null);
+        return cursor;
+    }
+
+    //SELECT BEST FOOD
+    public Cursor getDataBestFood(){
         SQLiteDatabase database = getWritableDatabase();
         Cursor cursor = database.rawQuery("SELECT * FROM FoodDetails", null);
         return cursor;

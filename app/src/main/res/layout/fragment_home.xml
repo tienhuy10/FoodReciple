@@ -50,20 +50,13 @@
                 android:layout_height="200dp"
                 android:layout_marginTop="20dp" />
 
-            <!--            <me.relex.circleindicator.CircleIndicator-->
-            <!--                android:id="@+id/circle_In"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="40dp"-->
-            <!--                android:layout_gravity="center_horizontal"-->
-            <!--                app:ci_drawable="@drawable/bg_circle_indicator" />-->
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Danh mục món ăn"
+                android:text="DANH MỤC MÓN ĂN"
                 android:textColor="@color/main_color"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -76,13 +69,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Món ăn mới nhất"
+                android:text="MÓN ĂN MỚI NHẤT"
                 android:textColor="@color/main_color"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyview_new_food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="MÓN ĂN NGON"
+                android:textColor="@color/main_color"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyview_best_food"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" />

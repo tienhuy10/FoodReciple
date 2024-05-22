@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.foodreciple.Adapter.adapter_Best_Food;
 import com.example.foodreciple.Adapter.adapter_Food;
 import com.example.foodreciple.Adapter.adapter_image_slider;
 import com.example.foodreciple.DatabaseHelper;
@@ -26,12 +27,13 @@ public class Home extends Fragment {
 
     private ViewPager2 viewPager2;
     private adapter_image_slider imagePagerAdapter;
-    RecyclerView recyview_category, recyview_new_food;
-    ArrayList<String> CategoryName, FoodName, Time;
-    ArrayList<byte[]> Image, Image_food, Image_slider;
+    RecyclerView recyview_category, recyview_new_food, recyview_best_food;
+    ArrayList<String> CategoryName, FoodName, Time, bestFood_name, bestFood_time;
+    ArrayList<byte[]> Image, Image_food, Image_slider, bestFood_image;
     DatabaseHelper databaseHelper;
     adapter_Category adapter_category;
     adapter_Food adapter_food;
+    adapter_Best_Food adapter_best_food;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -58,13 +60,21 @@ public class Home extends Fragment {
         databaseHelper = new DatabaseHelper(getContext());
 
         Image_slider = new ArrayList<>();
-
+        // Danh mục
         CategoryName = new ArrayList<>();
         Image = new ArrayList<>();
 
+        //Món ăn mới nhất
         FoodName = new ArrayList<>();
         Image_food = new ArrayList<>();
         Time = new ArrayList<>();
+
+        //Món ăn ngon
+        bestFood_name = new ArrayList<>();
+        bestFood_image = new ArrayList<>();
+        bestFood_time = new ArrayList<>();
+
+
     }
 
     @Override
@@ -74,10 +84,16 @@ public class Home extends Fragment {
         viewPager2 = view.findViewById(R.id.viewPager2);
         recyview_category = view.findViewById(R.id.recyview_category);
         recyview_new_food = view.findViewById(R.id.recyview_new_food);
+        recyview_best_food = view.findViewById(R.id.recyview_best_food);
+
         display_image_slider();
         autoScrollImages();
+
         displaydata_category();
         displaydata_food();
+
+        displaydata_best_food();
+
         return view;
     }
 
@@ -123,14 +139,33 @@ public class Home extends Fragment {
         } else {
             while (cursor.moveToNext()) {
                 FoodName.add(cursor.getString(1));
-                byte[] imageBytes = cursor.getBlob(5); // Lấy dữ liệu Blob dưới dạng byte array
-                Image_food.add(imageBytes); // Thêm byte array vào danh sách Image
-                Time.add(cursor.getString(6));
+                byte[] imageBytes = cursor.getBlob(5);
+                Image_food.add(imageBytes);
+                Time.add(cursor.getString(7));
             }
             adapter_food = new adapter_Food(getContext(), FoodName, Image_food, Time);
             recyview_new_food.setAdapter(adapter_food);
             GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
             recyview_new_food.setLayoutManager(layoutManager);
+        }
+    }
+
+    private void displaydata_best_food() {
+        Cursor cursor = databaseHelper.getDataBestFood();
+        if (cursor.getCount() == 0) {
+            Toast.makeText(getContext(), "Không có dữ liệu", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            while (cursor.moveToNext()) {
+                bestFood_name.add(cursor.getString(1));
+                byte[] imageBytes = cursor.getBlob(5);
+                bestFood_image.add(imageBytes);
+                bestFood_time.add(cursor.getString(7));
+            }
+            adapter_best_food = new adapter_Best_Food(getContext(), bestFood_name, bestFood_image, bestFood_time);
+            recyview_best_food.setAdapter(adapter_best_food);
+            GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
+            recyview_best_food.setLayoutManager(layoutManager);
         }
     }
 

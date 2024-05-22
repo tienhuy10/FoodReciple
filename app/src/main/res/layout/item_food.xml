@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="130dp"
+    android:layout_width="110dp"
     android:layout_height="wrap_content"
-    android:layout_marginRight="10dp"
-    app:cardCornerRadius="8dp">
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,33 +23,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:padding="6dp"
             android:text="Ten Mon"
             android:textSize="14sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_margin="8dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/txt_time"
-                android:layout_width="35dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="6dp"
-                android:text="phút"
-                android:textSize="14sp" />
-
-            <Button
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:textSize="10dp"
-                android:drawableLeft="@drawable/bookmark"
-                android:text="Lưu" />
+                android:layout_height="match_parent"
+                android:paddingTop="6dp"
+                android:paddingLeft="6dp"
+                android:paddingBottom="6dp"
+                android:paddingRight="2dp"
+                android:text="20"
+                android:gravity=""
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingTop="6dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="6dp"
+                android:text="phút"
+                android:gravity=""
+                android:textSize="12sp" />
+
+            <ImageButton
+                android:id="@+id/save"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:background="@color/main_color"
+                android:src="@drawable/bookmark"/>
+
 
         </LinearLayout>
-
-
 
     </LinearLayout>
 

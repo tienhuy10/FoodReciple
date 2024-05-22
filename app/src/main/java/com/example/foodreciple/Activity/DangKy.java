@@ -43,7 +43,7 @@ public class DangKy extends AppCompatActivity {
 
                     if(!checkUserEmail) {
                          if(!checkUsername) {
-                            boolean insert = DatabaseHelper.SingUp(email, password, username);
+                            boolean insert = DatabaseHelper.SingUp(username, password, email);
 
                             if(insert) {
                                 Toast.makeText(DangKy.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
