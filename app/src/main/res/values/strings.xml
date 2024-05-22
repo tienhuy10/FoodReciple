@@ -45,4 +45,8 @@
     </string>
     <string name="title_activity_category_add">Category_add</string>
     <string name="title_activity_add_food">Add_Food</string>
+    <string name="druation">Druation :</string>
+    <string name="time">time</string>
+    <string name="ingredients">Ingredients :</string>
+    <string name="steps">Steps:</string>
 </resources>
