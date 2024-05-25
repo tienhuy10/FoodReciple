@@ -1,7 +1,10 @@
-// FoodDetailActivity.java
 package com.example.foodreciple.FoodDetails;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,27 +13,34 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.foodreciple.R;
 
 public class FoodDetails extends AppCompatActivity {
+    TextView detailName, detailTime, detailIngredients, detailSteps;
+    ImageView detailImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_details);
+        detailName = findViewById(R.id.detailName);
+        detailTime = findViewById(R.id.detailTime);
+        detailIngredients = findViewById(R.id.detailIngredients);
+        detailSteps = findViewById(R.id.detailSteps);
+        detailImage = findViewById(R.id.detailImage);
 
-        String foodName = getIntent().getStringExtra("foodName");
-        String foodTime = getIntent().getStringExtra("foodTime");
-//        int foodImage = getIntent().getIntExtra("foodImage", R.drawable.default_image);
-        String foodIngredients = getIntent().getStringExtra("foodIngredients");
-        String foodSteps = getIntent().getStringExtra("foodSteps");
+        Intent intent = getIntent();
+        String text_foodName = intent.getStringExtra("text_foodName");
+        String img_food = intent.getStringExtra("img_food");
+        String text_time = intent.getStringExtra("text_time");
+        String text_ingredients = intent.getStringExtra("text_ingredients");
+        String text_steps = intent.getStringExtra("text_steps");
 
-        TextView detailName = findViewById(R.id.detailName);
-        TextView detailTime = findViewById(R.id.detailTime);
-        ImageView detailImage = findViewById(R.id.detailImage);
-        TextView detailIngredients = findViewById(R.id.detailIngredients);
-        TextView detailSteps = findViewById(R.id.detailSteps);
+        detailName.setText(text_foodName);
+        detailTime.setText(text_time);
+        detailIngredients.setText(text_ingredients);
+        detailSteps.setText(text_steps);
 
-        detailName.setText(foodName);
-        detailTime.setText(foodTime);
-//        detailImage.setImageResource(foodImage);
-        detailIngredients.setText(foodIngredients);
-        detailSteps.setText(foodSteps);
+
+        byte[] imageBytes = Base64.decode(img_food, Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+        detailImage.setImageBitmap(bitmap);
     }
 }

@@ -30,6 +30,7 @@ public class Home extends Fragment {
     RecyclerView recyview_category, recyview_new_food, recyview_best_food;
     ArrayList<String> CategoryName, FoodName, Time, bestFood_name, bestFood_time;
     ArrayList<byte[]> Image, Image_food, Image_slider, bestFood_image;
+
     DatabaseHelper databaseHelper;
     adapter_Category adapter_category;
     adapter_Food adapter_food;
@@ -137,13 +138,18 @@ public class Home extends Fragment {
             Toast.makeText(getContext(), "Không có dữ liệu", Toast.LENGTH_SHORT).show();
             return;
         } else {
+            ArrayList<String> Ingredients = new ArrayList<>();
+            ArrayList<String> Steps = new ArrayList<>();
+
             while (cursor.moveToNext()) {
                 FoodName.add(cursor.getString(1));
                 byte[] imageBytes = cursor.getBlob(5);
                 Image_food.add(imageBytes);
                 Time.add(cursor.getString(7));
+                Ingredients.add(cursor.getString(3)); // Assuming column 3 is for ingredients
+                Steps.add(cursor.getString(4));      // Assuming column 4 is for steps
             }
-            adapter_food = new adapter_Food(getContext(), FoodName, Image_food, Time);
+            adapter_food = new adapter_Food(getContext(), FoodName, Image_food, Time, Ingredients, Steps);
             recyview_new_food.setAdapter(adapter_food);
             GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
             recyview_new_food.setLayoutManager(layoutManager);
@@ -156,13 +162,18 @@ public class Home extends Fragment {
             Toast.makeText(getContext(), "Không có dữ liệu", Toast.LENGTH_SHORT).show();
             return;
         } else {
+            ArrayList<String> bestFood_ingredients = new ArrayList<>();
+            ArrayList<String> bestFood_steps = new ArrayList<>();
+
             while (cursor.moveToNext()) {
                 bestFood_name.add(cursor.getString(1));
                 byte[] imageBytes = cursor.getBlob(5);
                 bestFood_image.add(imageBytes);
                 bestFood_time.add(cursor.getString(7));
+                bestFood_ingredients.add(cursor.getString(3)); // Assuming column 3 is for ingredients
+                bestFood_steps.add(cursor.getString(4));      // Assuming column 4 is for steps
             }
-            adapter_best_food = new adapter_Best_Food(getContext(), bestFood_name, bestFood_image, bestFood_time);
+            adapter_best_food = new adapter_Best_Food(getContext(), bestFood_name, bestFood_image, bestFood_time, bestFood_ingredients, bestFood_steps);
             recyview_best_food.setAdapter(adapter_best_food);
             GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
             recyview_best_food.setLayoutManager(layoutManager);
