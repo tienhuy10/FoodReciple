@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 
+import com.example.foodreciple.Model.User;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String databaseName = "FoodRecipleData.db";
@@ -30,7 +32,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private String SQLQuery2 = "INSERT INTO Users VAlUES (null,'huy','huy','huy@gmail.com',1)";
 
 
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQLQuery_Table_Users);
@@ -47,15 +48,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public Boolean Login(String username, String password){
+    public User Login_admin(String username, String password) {
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
-        Cursor cursor = MyDatabase.rawQuery("Select * from Users where username = ? and password = ?", new String[]{username, password});
-        if (cursor.getCount() > 0) {
-            return true;
-        }else {
-            return false;
+        Cursor cursor = MyDatabase.rawQuery("SELECT * FROM Users WHERE username = ? AND password = ?", new String[]{username, password});
+        if (cursor.moveToFirst()) {
+            int id = cursor.getInt(0);
+            String uname = cursor.getString(1);
+            String pwd = cursor.getString(2);
+            String email = cursor.getString(3);
+            int phanquyen = cursor.getInt(4);
+            return new User(id, uname, pwd, email, phanquyen);
+        } else {
+            return null;
         }
     }
+
+//    public Boolean Login(String username, String password){
+//        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+//        Cursor cursor = MyDatabase.rawQuery("Select * from Users where username = ? and password = ?", new String[]{username, password});
+//        if (cursor.getCount() > 0) {
+//            return true;
+//        }else {
+//            return false;
+//        }
+//    }
 
     public Boolean SingUp(String username, String password, String email){
         SQLiteDatabase MyDatabase = this.getWritableDatabase();

@@ -19,6 +19,16 @@
         android:theme="@style/Theme.FoodReciple"
         tools:targetApi="31">
         <activity
+            android:name=".AdminActivity.Admin_Main"
+            android:exported="true"
+            android:label="@string/title_activity_admin_main"
+            android:theme="@style/Theme.FoodReciple">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".AdminActivity.Add_Food"
             android:exported="true"
             android:label="@string/title_activity_add_food"
@@ -26,7 +36,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             </intent-filter>
         </activity>
         <activity
@@ -42,7 +52,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                 <category android:name="android.intent.category.LAUNCHER" /> <!-- Thêm category này -->
+                <category android:name="android.intent.category.LAUNCHER" /> <!-- Thêm category này -->
             </intent-filter>
         </activity>
         <activity
@@ -68,8 +78,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FoodDetails.FoodDetails"/>
-
+        <activity android:name=".FoodDetails.FoodDetails" />
     </application>
 
 </manifest>

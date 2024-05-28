@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.FoodReciple" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/main_color</item>
+        <item name="colorPrimary">@color/main_color</item>
     </style>
 
     <style name="Theme.FoodReciple" parent="Base.Theme.FoodReciple" />
