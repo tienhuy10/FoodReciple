@@ -1,65 +1,84 @@
 package com.example.foodreciple.Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodreciple.Adapter.adapter_Food;
 import com.example.foodreciple.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Saved#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Saved extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private RecyclerView recyclerView;
+    private adapter_Food adapter;
+    private ArrayList<String> savedFoodName = new ArrayList<>();
+    private ArrayList<byte[]> savedImageFood = new ArrayList<>();
+    private ArrayList<String> savedTime = new ArrayList<>();
+    private ArrayList<String> savedIngredients = new ArrayList<>();
+    private ArrayList<String> savedSteps = new ArrayList<>();
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Saved() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Saved.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Saved newInstance(String param1, String param2) {
-        Saved fragment = new Saved();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_saved, container, false);
+        View view = inflater.inflate(R.layout.fragment_saved, container, false);
+
+        recyclerView = view.findViewById(R.id.recycler_saved_foods);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // Load saved items
+        loadSavedItems();
+
+        // Set up adapter
+        adapter = new adapter_Food(getContext(), savedFoodName, savedImageFood, savedTime, savedIngredients, savedSteps);
+        recyclerView.setAdapter(adapter);
+
+        return view;
+    }
+
+    private void loadSavedItems() {
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("SavedFoods", Context.MODE_PRIVATE);
+        Set<String> savedItems = sharedPreferences.getStringSet("savedFoodSet", new HashSet<>());
+
+        // Clear current data
+        savedFoodName.clear();
+        savedImageFood.clear();
+        savedTime.clear();
+        savedIngredients.clear();
+        savedSteps.clear();
+
+        // Iterate over saved items and populate lists
+        for (String item : savedItems) {
+            String[] parts = item.split(";");
+            if (parts.length >= 5) { // Check if array has enough elements
+                savedFoodName.add(parts[0]);
+                savedImageFood.add(Base64.decode(parts[1], Base64.DEFAULT));
+                savedTime.add(parts[2]);
+                savedIngredients.add(parts[3]);
+                savedSteps.add(parts[4]);
+            } else {
+                // Handle invalid data case (e.g., print an error message)
+                System.out.println("Invalid data format: " + item);
+            }
+        }
+
+        // Notify adapter about data change
+        if (adapter != null) {
+            adapter.notifyDataSetChanged();
+        }
     }
 }
