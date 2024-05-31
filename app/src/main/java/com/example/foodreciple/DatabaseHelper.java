@@ -128,14 +128,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //SELECT FOOD
     public Cursor getDataFood(){
         SQLiteDatabase database = getWritableDatabase();
-        Cursor cursor = database.rawQuery("SELECT * FROM FoodDetails", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM FoodDetails WHERE UserID = 1", null);
+        return cursor;
+    }
+
+    // SELECT MÓN ĂN CHƯA DUYỆT
+    public Cursor getDataFood_INACTIVE(){
+        SQLiteDatabase database = getWritableDatabase();
+        Cursor cursor = database.rawQuery("SELECT * FROM FoodDetails WHERE UserID = 0", null);
         return cursor;
     }
 
     //SELECT BEST FOOD
     public Cursor getDataBestFood(){
         SQLiteDatabase database = getWritableDatabase();
-        Cursor cursor = database.rawQuery("SELECT * FROM FoodDetails", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM FoodDetails WHERE BestFood = 1", null);
         return cursor;
     }
 
@@ -149,7 +156,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //INSERT FOOD
     public void insertDataFood(String FoodName, int CategoryID, String Ingredients, String Steps, byte[] Image, String Time){
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO FoodDetails (FoodName, CategoryID, Ingredients, Steps, Image, Time) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO FoodDetails (FoodName, CategoryID, Ingredients, Steps, Image, Time, BestFood, UserID) VALUES (?, ?, ?, ?, ?, ?, 0, 0)";
 
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
