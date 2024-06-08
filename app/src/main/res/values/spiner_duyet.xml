@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="status_array">
+        <item>Không duyệt</item>
+        <item>Duyệt</item>
+    </string-array>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner">
+        <item>Đồ ăn thường</item>
+        <item>Đồ ăn ngon</item>
+    </string-array>
+</resources>

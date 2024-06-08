@@ -31,7 +31,7 @@ public class Intro extends AppCompatActivity {
         btn_Dangky.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intro.this, Add_Category.class);
+                Intent intent = new Intent(Intro.this, DangKy.class);
                 startActivity(intent);
             }
         });

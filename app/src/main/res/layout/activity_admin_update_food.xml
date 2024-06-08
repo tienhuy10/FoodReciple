@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center_horizontal"
         android:text="Cập nhật món ăn"
         android:textColor="@color/main_color"
@@ -20,7 +20,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:gravity="center_horizontal"
         android:text="Vui lòng nhập đầy đủ thông tin!"
@@ -30,23 +29,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:gravity="bottom"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/img" />
-
-        <Button
-            android:id="@+id/choose_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="Chọn hình ảnh"
-            android:textSize="18dp" />
 
     </LinearLayout>
 
@@ -57,7 +48,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/category_name"
+            android:id="@+id/food_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -77,11 +68,6 @@
             android:layout_marginTop="20dp"
             android:hint="Nhập các bước" />
 
-        <Spinner
-            android:id="@+id/spinner_category"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/edt_time"
@@ -91,6 +77,30 @@
             android:hint="Thời gian"
             android:inputType="number" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Kiểm duyệt đồ ăn"/>
+
+        <Spinner
+            android:id="@+id/status_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Đồ ăn ngon"/>
+
+        <Spinner
+            android:id="@+id/best_food_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+
         <Button
             android:id="@+id/update_food"
             android:layout_width="match_parent"
@@ -98,6 +108,14 @@
             android:layout_marginTop="20dp"
             android:textSize="20dp"
             android:text="Cập nhật" />
+
+        <Button
+            android:id="@+id/delete_food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:text="Xóa món ăn" />
 
     </LinearLayout>
 

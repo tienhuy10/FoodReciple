@@ -139,6 +139,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    // Cập nhật món ăn
+    public boolean updateFood(int foodID, String foodName, String ingredients, String steps, String time, int bestFood, int userID) {
+        SQLiteDatabase database = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("FoodName", foodName);
+        contentValues.put("Ingredients", ingredients);
+        contentValues.put("Steps", steps);
+        contentValues.put("Time", time);
+        contentValues.put("BestFood", bestFood);
+        contentValues.put("UserID", userID);
+
+        // Update the row with the specified ID
+        long result = database.update("FoodDetails", contentValues, "ID = ?", new String[]{String.valueOf(foodID)});
+        return result != -1;
+    }
+
+    //Xoa Mon an
+    public boolean deleteFood(int foodID) {
+        SQLiteDatabase database = getWritableDatabase();
+        int result = database.delete("FoodDetails", "ID = ?", new String[]{String.valueOf(foodID)});
+        return result > 0;
+    }
+
+
+
+
     //SELECT BEST FOOD
     public Cursor getDataBestFood(){
         SQLiteDatabase database = getWritableDatabase();

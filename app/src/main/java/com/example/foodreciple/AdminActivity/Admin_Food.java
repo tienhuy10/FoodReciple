@@ -14,12 +14,12 @@ import java.util.ArrayList;
 
 public class Admin_Food extends AppCompatActivity {
     RecyclerView recycler_inactive, recycler_active;
-    ArrayList<String> FoodName_inactive, FoodName_active;
+    ArrayList<String> FoodName_inactive, Steps_inactive, Time_inactive, Ingredients_inactive;
+    ArrayList<String> FoodName_active, Steps_active, Time_active, Ingredients_active;
+    ArrayList<Integer> FoodID_inactive, FoodID_active;
     ArrayList<byte[]> Image_food_inactive, Image_food_active;
     DatabaseHelper databaseHelper;
     Admin_adapter_food admin_adapter_food;
-
-
 
 
     @Override
@@ -32,9 +32,19 @@ public class Admin_Food extends AppCompatActivity {
         //Món ăn chưa duyệt
         FoodName_inactive = new ArrayList<>();
         Image_food_inactive = new ArrayList<>();
+        Steps_inactive = new ArrayList<>();
+        Time_inactive = new ArrayList<>();
+        Ingredients_inactive = new ArrayList<>();
 
         FoodName_active = new ArrayList<>();
         Image_food_active = new ArrayList<>();
+        Steps_active = new ArrayList<>();
+        Time_active = new ArrayList<>();
+        Ingredients_active = new ArrayList<>();
+
+        FoodID_inactive = new ArrayList<>();
+        FoodID_active = new ArrayList<>();
+
 
         recycler_inactive = findViewById(R.id.recycler_inactive);
         recycler_active = findViewById(R.id.recycler_active);
@@ -50,11 +60,15 @@ public class Admin_Food extends AppCompatActivity {
             return;
         } else {
             while (cursor.moveToNext()) {
+                FoodID_inactive.add(Integer.valueOf(cursor.getString(0)));
                 FoodName_inactive.add(cursor.getString(1));
+                Time_inactive.add(cursor.getString(7));
+                Ingredients_inactive.add(cursor.getString(3));
+                Steps_inactive.add(cursor.getString(4));
                 byte[] imageBytes = cursor.getBlob(5);
                 Image_food_inactive.add(imageBytes);
             }
-            admin_adapter_food = new Admin_adapter_food(this, Image_food_inactive, FoodName_inactive);
+            admin_adapter_food = new Admin_adapter_food(this, Image_food_inactive, FoodID_inactive, FoodName_inactive, Time_inactive, Ingredients_inactive, Steps_inactive);
             recycler_inactive.setAdapter(admin_adapter_food);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
             recycler_inactive.setLayoutManager(linearLayoutManager);
@@ -69,11 +83,15 @@ public class Admin_Food extends AppCompatActivity {
             return;
         } else {
             while (cursor.moveToNext()) {
+                FoodID_active.add(Integer.valueOf(cursor.getString(0)));
                 FoodName_active.add(cursor.getString(1));
+                Time_active.add(cursor.getString(7));
+                Ingredients_active.add(cursor.getString(3));
+                Steps_active.add(cursor.getString(4));
                 byte[] imageBytes = cursor.getBlob(5);
                 Image_food_active.add(imageBytes);
             }
-            admin_adapter_food = new Admin_adapter_food(this, Image_food_active, FoodName_active);
+            admin_adapter_food = new Admin_adapter_food(this, Image_food_active, FoodID_active, FoodName_active, Time_active, Ingredients_active, Steps_active);
             recycler_active.setAdapter(admin_adapter_food);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
             recycler_active.setLayoutManager(linearLayoutManager);
