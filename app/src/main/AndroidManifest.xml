@@ -19,36 +19,15 @@
         android:theme="@style/Theme.FoodReciple"
         tools:targetApi="31">
         <activity
-            android:name=".AdminActivity.Admin_update_food"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".AdminActivity.Admin_Food"
-            android:exported="true"
-            android:label="@string/title_activity_admin_food"
-            android:theme="@style/Theme.FoodReciple">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".AdminActivity.Admin_Main"
             android:exported="true"
             android:label="@string/title_activity_admin_main"
             android:theme="@style/Theme.FoodReciple">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
             </intent-filter>
         </activity>
+
         <activity
             android:name=".AdminActivity.Add_Food"
             android:exported="true"
@@ -65,6 +44,8 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+
             </intent-filter>
         </activity>
         <activity
@@ -73,7 +54,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" /> <!-- Thêm category này -->
             </intent-filter>
         </activity>
         <activity
@@ -96,10 +77,17 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".FoodDetails.FoodDetails" />
+        <activity android:name=".AdminActivity.Admin_Category"></activity>
+        <activity android:name=".AdminActivity.Admin_Food"></activity>
+        <activity android:name=".AdminActivity.Admin_update_food" />
+        <activity android:name=".AdminActivity.Admin_update_category" />
+
+
     </application>
 
 </manifest>

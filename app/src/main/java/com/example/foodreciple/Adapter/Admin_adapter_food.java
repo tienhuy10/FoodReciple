@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.foodreciple.AdminActivity.Admin_Food;
 import com.example.foodreciple.AdminActivity.Admin_update_food;
 import com.example.foodreciple.R;
 
@@ -26,7 +25,7 @@ public class Admin_adapter_food extends RecyclerView.Adapter<Admin_adapter_food.
     private ArrayList<Integer> FoodID;
     private ArrayList<String> FoodName, Time, Ingredients, Steps;
 
-    public Admin_adapter_food(Context context, ArrayList<byte[]> image_food, ArrayList<Integer> foodID, ArrayList<String> foodName, ArrayList<String> time, ArrayList<String> ingredients, ArrayList<String> steps) {
+    public Admin_adapter_food(Context context, ArrayList<byte[]> image_food, ArrayList<Integer> foodID, ArrayList<String> foodName, ArrayList<String> time, ArrayList<String> ingredients,ArrayList<String> steps) {
         this.context = context;
         this.Image_food = image_food;
         this.FoodID = foodID;
