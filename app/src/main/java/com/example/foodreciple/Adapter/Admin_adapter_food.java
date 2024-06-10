@@ -45,10 +45,10 @@ public class Admin_adapter_food extends RecyclerView.Adapter<Admin_adapter_food.
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.food_id_txt.setText(String.valueOf(FoodID.get(position)));
-//        holder.food_title_txt.setText(FoodName.get(position));
-//        holder.food_time_txt.setText(Time.get(position));
-//        holder.food_ingredients_txt.setText(Ingredients.get(position));
-//        holder.food_Steps_txt.setText(Steps.get(position));
+        holder.food_title_txt.setText(FoodName.get(position));
+        holder.food_time_txt.setText(Time.get(position));
+        holder.food_ingredients_txt.setText(Ingredients.get(position));
+        holder.food_Steps_txt.setText(Steps.get(position));
         byte[] imageBlob = Image_food.get(position);
 
         Glide.with(context)
@@ -61,12 +61,12 @@ public class Admin_adapter_food extends RecyclerView.Adapter<Admin_adapter_food.
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, Admin_update_food.class);
-//                intent.putExtra("ID", FoodID.get(position));
-//                intent.putExtra("FoodName", FoodName.get(position));
-//                intent.putExtra("Time", Time.get(position));
-//                intent.putExtra("Ingredients", Ingredients.get(position));
-//                intent.putExtra("Steps", Steps.get(position));
-//                intent.putExtra("Image", Image_food.get(position));
+                intent.putExtra("ID", FoodID.get(position));
+                intent.putExtra("FoodName", FoodName.get(position));
+                intent.putExtra("Time", Time.get(position));
+                intent.putExtra("Ingredients", Ingredients.get(position));
+                intent.putExtra("Steps", Steps.get(position));
+                intent.putExtra("Image", Image_food.get(position));
                 context.startActivity(intent);
             }
         });
