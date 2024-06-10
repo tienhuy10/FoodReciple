@@ -21,35 +21,35 @@
         android:id="@+id/btnManageFoodCategories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quản trị danh mục đồ ăn"
         android:layout_marginBottom="16dp"
-        android:padding="16dp"
         android:background="@android:color/holo_blue_light"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"/>
+        android:padding="16dp"
+        android:text="Quản trị danh mục đồ ăn"
+        android:textColor="#4E342E"
+        android:textSize="16sp" />
 
     <!-- Quản trị đồ ăn chi tiết Button -->
     <Button
         android:id="@+id/btnManageFoodDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quản trị đồ ăn chi tiết"
         android:layout_marginBottom="16dp"
-        android:padding="16dp"
         android:background="@android:color/holo_green_light"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"/>
+        android:padding="16dp"
+        android:text="Quản trị đồ ăn chi tiết"
+        android:textColor="#0D47A1"
+        android:textSize="16sp" />
 
     <!-- Quản trị người dùng Button -->
     <Button
         android:id="@+id/btnManageUsers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quản trị người dùng"
         android:layout_marginBottom="16dp"
-        android:padding="16dp"
         android:background="@android:color/holo_red_light"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"/>
+        android:padding="16dp"
+        android:text="Quản trị người dùng"
+        android:textColor="#212121"
+        android:textSize="16sp" />
 
 </LinearLayout>

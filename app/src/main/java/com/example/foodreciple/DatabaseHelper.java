@@ -139,6 +139,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    // SELCET DANH MUC
+    public Cursor getDataCategory_INACTIVE(){
+        SQLiteDatabase database = getWritableDatabase();
+        Cursor cursor = database.rawQuery("SELECT * FROM FoodCategories ", null);
+        return cursor;
+    }
+    // UPDATE DANH MỤC
+    public boolean updateCategory(int categoryID, String categoryName, byte[] imageCategory) {
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("CategoryName", categoryName);
+        contentValues.put("Image", imageCategory); // Giữ kiểu dữ liệu của imageCategory là byte[]
+        long result = database.update("FoodCategories", contentValues, "ID = ?", new String[]{String.valueOf(categoryID)});
+        return result != -1;
+    }
+
+
+    //XÓA DANH MỤC
+    public boolean deleteCategory(int categoryID) {
+        SQLiteDatabase database = getWritableDatabase();
+        int result = database.delete("FoodCategories", "ID = ?", new String[]{String.valueOf(categoryID)});
+        return result > 0;
+    }
     // Cập nhật món ăn
     public boolean updateFood(int foodID, String foodName, String ingredients, String steps, String time, int bestFood, int userID) {
         SQLiteDatabase database = getWritableDatabase();
@@ -154,6 +177,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long result = database.update("FoodDetails", contentValues, "ID = ?", new String[]{String.valueOf(foodID)});
         return result != -1;
     }
+
 
     //Xoa Mon an
     public boolean deleteFood(int foodID) {

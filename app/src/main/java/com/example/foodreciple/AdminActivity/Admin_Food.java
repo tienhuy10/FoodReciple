@@ -68,7 +68,7 @@ public class Admin_Food extends AppCompatActivity {
                 byte[] imageBytes = cursor.getBlob(5);
                 Image_food_inactive.add(imageBytes);
             }
-            admin_adapter_food = new Admin_adapter_food(this, Image_food_inactive, FoodID_inactive, FoodName_inactive, Time_inactive, Ingredients_inactive, Steps_inactive);
+            admin_adapter_food = new Admin_adapter_food(this, Image_food_inactive, FoodID_inactive, FoodName_inactive,Time_inactive,Ingredients_inactive,Steps_inactive);
             recycler_inactive.setAdapter(admin_adapter_food);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
             recycler_inactive.setLayoutManager(linearLayoutManager);
@@ -91,7 +91,7 @@ public class Admin_Food extends AppCompatActivity {
                 byte[] imageBytes = cursor.getBlob(5);
                 Image_food_active.add(imageBytes);
             }
-            admin_adapter_food = new Admin_adapter_food(this, Image_food_active, FoodID_active, FoodName_active, Time_active, Ingredients_active, Steps_active);
+            admin_adapter_food = new Admin_adapter_food(this, Image_food_active, FoodID_active, FoodName_active,Time_active,Steps_active,Ingredients_active);
             recycler_active.setAdapter(admin_adapter_food);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
             recycler_active.setLayoutManager(linearLayoutManager);
