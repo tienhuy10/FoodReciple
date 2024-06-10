@@ -19,6 +19,27 @@
         android:theme="@style/Theme.FoodReciple"
         tools:targetApi="31">
         <activity
+            android:name=".Setting_Activity.About"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Setting_Activity.Dieu_khoan"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Setting_Activity.Chinh_sach"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".Activity.Food_to_Category"
             android:exported="false" />
         <activity
@@ -79,7 +100,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             </intent-filter>
         </activity>
         <activity android:name=".FoodDetails.FoodDetails" />

@@ -6,10 +6,28 @@
     android:background="@android:color/background_light"
     tools:context=".Fragment.Saved">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_saved_foods"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Danh Mục Các Món Ăn Đã Lưu"
+            android:textColor="@color/main_color"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingBottom="16dp"
+            android:layout_gravity="center"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_saved_foods"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="16dp" />
+
+    </LinearLayout>
 </FrameLayout>

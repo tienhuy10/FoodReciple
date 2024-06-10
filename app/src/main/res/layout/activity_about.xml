@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_color"
+    android:padding="16dp"
+    tools:context=".Setting_Activity.About">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Về Cooking Food"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_text"
+                    android:gravity="center"
+                    android:paddingStart="8dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cooking Food là ứng dụng giúp bạn khám phá các công thức nấu ăn mới, học cách nấu các món ăn ngon và sáng tạo. Chúng tôi cam kết cung cấp những thông tin chính xác và đáng tin cậy về cách làm món ăn từ các nguồn đáng tin cậy."
+                android:textSize="16sp"
+                android:textColor="@color/secondary_text"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chúng tôi hy vọng rằng ứng dụng của chúng tôi sẽ mang lại cho bạn trải nghiệm nấu ăn tuyệt vời và hữu ích."
+                android:textSize="16sp"
+                android:textColor="@color/secondary_text"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

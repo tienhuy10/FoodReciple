@@ -63,16 +63,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-//    public Boolean Login(String username, String password){
-//        SQLiteDatabase MyDatabase = this.getWritableDatabase();
-//        Cursor cursor = MyDatabase.rawQuery("Select * from Users where username = ? and password = ?", new String[]{username, password});
-//        if (cursor.getCount() > 0) {
-//            return true;
-//        }else {
-//            return false;
-//        }
-//    }
-
     public Boolean SingUp(String username, String password, String email){
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -125,8 +115,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    //SELECT FOOD
+    //SELECT Mónân da duyet
     public Cursor getDataFood(){
+        SQLiteDatabase database = getWritableDatabase();
+        Cursor cursor = database.rawQuery("SELECT * FROM FoodDetails WHERE UserID = 1 ORDER BY ID DESC LIMIT 6", null);
+        return cursor;
+    }
+
+    public Cursor getDataFood_ACTIVE() {
         SQLiteDatabase database = getWritableDatabase();
         Cursor cursor = database.rawQuery("SELECT * FROM FoodDetails WHERE UserID = 1", null);
         return cursor;
@@ -200,7 +196,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //SELECT BEST FOOD
     public Cursor getDataBestFood(){
         SQLiteDatabase database = getWritableDatabase();
-        Cursor cursor = database.rawQuery("SELECT * FROM FoodDetails WHERE BestFood = 1", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM FoodDetails WHERE UserID = 1 and BestFood = 1", null);
         return cursor;
     }
 

@@ -77,7 +77,7 @@ public class Admin_Food extends AppCompatActivity {
 
     //Đồ ăn đã duyệt
     private void displaydata_active() {
-        Cursor cursor = databaseHelper.getDataFood();
+        Cursor cursor = databaseHelper.getDataFood_ACTIVE();
         if (cursor.getCount() == 0) {
             Toast.makeText(this, "Không có dữ liệu", Toast.LENGTH_SHORT).show();
             return;

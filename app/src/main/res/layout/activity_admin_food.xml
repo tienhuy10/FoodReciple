@@ -9,53 +9,54 @@
     android:orientation="vertical"
     tools:context=".AdminActivity.Admin_Food">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="QUẢN LÝ ĐỒ ĂN"
-        android:textColor="@color/main_color"
-        android:layout_marginBottom="20dp"
-        android:textSize="30dp"
-        android:textStyle="bold" />
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ĐỒ ĂN CHƯA DUYỆT"
-        android:textColor="@color/main_color"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="350dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="QUẢN LÝ ĐỒ ĂN"
+            android:textColor="@color/main_color"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ĐỒ ĂN CHƯA DUYỆT"
+            android:textColor="@color/main_color"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_inactive"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </ScrollView>
+            android:layout_height="wrap_content" />
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="ĐỒ ĂN ĐÃ DUYỆT"
-        android:textColor="@color/main_color"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="ĐỒ ĂN ĐÃ DUYỆT"
+            android:textColor="@color/main_color"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="350dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_active"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </ScrollView>
+
+
+    </LinearLayout>
 
 
 </LinearLayout>

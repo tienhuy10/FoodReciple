@@ -1,13 +1,21 @@
 package com.example.foodreciple.Fragment;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.foodreciple.Activity.DangNhap;
+import com.example.foodreciple.Activity.Intro;
 import com.example.foodreciple.R;
+import com.example.foodreciple.Setting_Activity.About;
+import com.example.foodreciple.Setting_Activity.Chinh_sach;
+import com.example.foodreciple.Setting_Activity.Dieu_khoan;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +23,7 @@ import com.example.foodreciple.R;
  * create an instance of this fragment.
  */
 public class Profile extends Fragment {
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,10 +65,49 @@ public class Profile extends Fragment {
         }
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        TextView txt_logout = view.findViewById(R.id.txt_logout);
+        TextView about_text = view.findViewById(R.id.about_text);
+        TextView terms_of_service_text = view.findViewById(R.id.terms_of_service_text);
+        TextView privacy_policy_text = view.findViewById(R.id.privacy_policy_text);
+
+        txt_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), Intro.class);
+                startActivity(intent);
+            }
+        });
+
+        terms_of_service_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), Dieu_khoan.class);
+                startActivity(intent);
+            }
+        });
+
+        privacy_policy_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), Chinh_sach.class);
+                startActivity(intent);
+            }
+        });
+
+        about_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), About.class);
+                startActivity(intent);
+            }
+        });
+
+        return view;
     }
 }
