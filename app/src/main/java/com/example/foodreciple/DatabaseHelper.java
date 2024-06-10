@@ -139,6 +139,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    // SELECT MÓN ĂN THEO DANH MỤC
+    public Cursor getDataFoodByCategory(int categoryId) {
+        SQLiteDatabase database = getWritableDatabase();
+        Cursor cursor = database.rawQuery("SELECT * FROM FoodDetails WHERE CategoryID = ?", new String[]{String.valueOf(categoryId)});
+        return cursor;
+    }
+
+
     // SELCET DANH MUC
     public Cursor getDataCategory_INACTIVE(){
         SQLiteDatabase database = getWritableDatabase();

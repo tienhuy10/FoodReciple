@@ -29,6 +29,7 @@ public class Home extends Fragment {
     private adapter_image_slider imagePagerAdapter;
     RecyclerView recyview_category, recyview_new_food, recyview_best_food;
     ArrayList<String> CategoryName, FoodName, Time, bestFood_name, bestFood_time;
+    ArrayList<Integer> ID_Cate;
     ArrayList<byte[]> Image, Image_food, Image_slider, bestFood_image;
 
     DatabaseHelper databaseHelper;
@@ -64,6 +65,7 @@ public class Home extends Fragment {
         // Danh mục
         CategoryName = new ArrayList<>();
         Image = new ArrayList<>();
+        ID_Cate = new ArrayList<>();
 
         //Món ăn mới nhất
         FoodName = new ArrayList<>();
@@ -146,8 +148,8 @@ public class Home extends Fragment {
                 byte[] imageBytes = cursor.getBlob(5);
                 Image_food.add(imageBytes);
                 Time.add(cursor.getString(7));
-                Ingredients.add(cursor.getString(3)); // Assuming column 3 is for ingredients
-                Steps.add(cursor.getString(4));      // Assuming column 4 is for steps
+                Ingredients.add(cursor.getString(3));
+                Steps.add(cursor.getString(4));
             }
             adapter_food = new adapter_Food(getContext(), FoodName, Image_food, Time, Ingredients, Steps);
             recyview_new_food.setAdapter(adapter_food);
@@ -188,11 +190,12 @@ public class Home extends Fragment {
 
         } else {
             while (cursor.moveToNext()) {
+                ID_Cate.add(Integer.valueOf(cursor.getString(0)));
                 CategoryName.add(cursor.getString(1));
                 byte[] imageBytes = cursor.getBlob(2); // Lấy dữ liệu Blob dưới dạng byte array
                 Image.add(imageBytes); // Thêm byte array vào danh sách Image
             }
-            adapter_category = new adapter_Category(getContext(), CategoryName, Image);
+            adapter_category = new adapter_Category(getContext(),ID_Cate, CategoryName, Image);
             recyview_category.setAdapter(adapter_category);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
             recyview_category.setLayoutManager(linearLayoutManager);

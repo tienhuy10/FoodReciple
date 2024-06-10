@@ -1,13 +1,19 @@
 package com.example.foodreciple.AdminActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodreciple.Activity.DangNhap;
+import com.example.foodreciple.Activity.Intro;
 import com.example.foodreciple.Adapter.Admin_adapter_category;
 import com.example.foodreciple.DatabaseHelper;
 import com.example.foodreciple.R;
@@ -21,11 +27,14 @@ public class Admin_Category extends AppCompatActivity {
     ArrayList<byte[]> Image_category_inactive;
     DatabaseHelper databaseHelper;
     Admin_adapter_category admin_adapter_category;
+    Button add_category;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_categories);
+        add_category = findViewById(R.id.add_category);
 
         databaseHelper = new DatabaseHelper(this);
 
@@ -37,6 +46,14 @@ public class Admin_Category extends AppCompatActivity {
         recycler_inactive = findViewById(R.id.recyclerViewCategories);
 
         displaydata_inactive();
+
+        add_category.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Admin_Category.this, Add_Category.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void displaydata_inactive() {

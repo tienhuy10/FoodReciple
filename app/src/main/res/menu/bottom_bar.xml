@@ -13,15 +13,10 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/post"
-        android:icon="@drawable/ic_baseline_settings"
+        android:icon="@drawable/post"
         android:title="Đăng bài"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/notification"
-        android:icon="@drawable/ic_baseline_support"
-        android:title="Thông báo"
-        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_baseline_person"

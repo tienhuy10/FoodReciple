@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:paddingBottom="20dp"
+        android:paddingBottom="15dp"
         android:text="COOKING FOOD"
         android:textColor="@color/main_color"
         android:textSize="30sp"
@@ -53,7 +53,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_margin="20dp"
+        android:layout_margin="15dp"
         android:background="@drawable/orange_button"
         android:orientation="horizontal">
 
@@ -80,7 +80,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_margin="20dp"
+        android:layout_margin="15dp"
         android:background="@drawable/orange_button"
         android:orientation="horizontal">
 
@@ -109,10 +109,9 @@
     <Button
         android:id="@+id/Home"
         android:layout_width="match_parent"
-        android:layout_margin="20dp"
+        android:layout_margin="15dp"
         android:layout_height="80dp"
         android:background="@drawable/orange_button"
-        android:padding="16dp"
         android:text="TRANG CHỦ"
         android:textColor="@color/white"
         android:textSize="26sp" />

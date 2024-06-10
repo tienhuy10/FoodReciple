@@ -46,9 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 } else if (itemId == R.id.post) {
                     loadFragment(new Post(), false);
 
-                } else if (itemId == R.id.notification) {
-                    loadFragment(new Notification(), false);
-
                 }else{
                     loadFragment(new Profile(), false);
                 }

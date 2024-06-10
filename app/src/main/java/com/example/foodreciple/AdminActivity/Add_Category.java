@@ -63,9 +63,10 @@ public class Add_Category extends AppCompatActivity {
                             category_name.getText().toString().trim(),
                             imageViewToByte(image)
                     );
-                    Toast.makeText(getApplicationContext(), "Added successfully!", Toast.LENGTH_SHORT).show();
-                    category_name.setText("");
-                    image.setImageResource(R.mipmap.ic_launcher);
+                    Toast.makeText(getApplicationContext(), "Thêm danh mục thành công!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Add_Category.this, Admin_Category.class);
+                    startActivity(intent);
+                    finish();
                 }
                 catch (Exception e){
                     e.printStackTrace();
