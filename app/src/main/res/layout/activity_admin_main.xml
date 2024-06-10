@@ -2,54 +2,120 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@android:color/white">
+    android:padding="16dp">
 
-    <!-- Title -->
+<!--    update-->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/logo_app" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Admin Dashboard"
-        android:textSize="24sp"
-        android:textStyle="bold"
         android:layout_gravity="center_horizontal"
-        android:paddingBottom="24dp"/>
+        android:paddingBottom="20dp"
+        android:text="COOKING FOOD"
+        android:textColor="@color/main_color"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
-    <!-- Quản trị danh mục đồ ăn Button -->
-    <Button
-        android:id="@+id/btnManageFoodCategories"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Quản trị danh mục đồ ăn"
-        android:layout_marginBottom="16dp"
-        android:padding="16dp"
-        android:background="@android:color/holo_blue_light"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"/>
+        android:layout_height="80dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/orange_button"
+        android:orientation="horizontal">
 
-    <!-- Quản trị đồ ăn chi tiết Button -->
-    <Button
-        android:id="@+id/btnManageFoodDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Quản trị đồ ăn chi tiết"
-        android:layout_marginBottom="16dp"
-        android:padding="16dp"
-        android:background="@android:color/holo_green_light"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"/>
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/cate" />
 
-    <!-- Quản trị người dùng Button -->
-    <Button
-        android:id="@+id/btnManageUsers"
+        <Button
+            android:id="@+id/btnManageFoodCategories"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/orange_light_banner"
+            android:padding="16dp"
+            android:text="Quản Lý Danh Mục"
+            android:textColor="@color/admin"
+            android:textSize="26sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Quản trị người dùng"
-        android:layout_marginBottom="16dp"
+        android:layout_height="80dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/orange_button"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/food" />
+
+        <Button
+            android:id="@+id/btnManageFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/orange_light_banner"
+            android:padding="16dp"
+            android:text="Quản Lý Đồ Ăn"
+            android:textColor="@color/admin"
+            android:textSize="26sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/orange_button"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/logo_user" />
+
+        <Button
+            android:id="@+id/btnManageUsers"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/orange_light_banner"
+            android:padding="16dp"
+            android:text="Quản Lý Người Dùng"
+            android:textColor="@color/admin"
+            android:textSize="26sp" />
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/Home"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="80dp"
+        android:background="@drawable/orange_button"
         android:padding="16dp"
-        android:background="@android:color/holo_red_light"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"/>
+        android:text="TRANG CHỦ"
+        android:textColor="@color/white"
+        android:textSize="26sp" />
+
 
 </LinearLayout>
